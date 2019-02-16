@@ -1,6 +1,7 @@
 package umm3601.user;
 
 import com.google.gson.Gson;
+import umm3601.todo.todo;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -18,12 +19,16 @@ import java.util.Map;
 public class Database {
 
   private User[] allUsers;
+  private todo[] allTodos;
 
   public Database(String userDataFile) throws IOException {
     Gson gson = new Gson();
     FileReader reader = new FileReader(userDataFile);
     allUsers = gson.fromJson(reader, User[].class);
+    allTodos = gson.fromJson(reader, todo[].class);
   }
+
+
 
   /**
    * Get the single user specified by the given ID. Return
@@ -55,6 +60,7 @@ public class Database {
 
     return filteredUsers;
   }
+
 
   /**
    * Get an array of all the users having the target age.

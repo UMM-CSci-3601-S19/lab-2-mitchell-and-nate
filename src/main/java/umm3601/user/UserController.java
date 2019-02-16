@@ -60,8 +60,9 @@ public class UserController {
    */
   public JsonObject getUsers(Request req, Response res) {
     res.type("application/json");
-    User[] users = database.listUsers(req.queryMap().toMap());
+      User[] users = database.listUsers(req.queryMap().toMap());
     return buildSuccessJsonResponse("users", gson.toJsonTree(users));
-  }
+    }
+
 
 }
