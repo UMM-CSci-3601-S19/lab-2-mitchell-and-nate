@@ -17,7 +17,7 @@ public class TestFilteringTodos {
   public void testthing(todo[] tempTodos) {
 
 
-    assertTrue(true);
+    assertTrue("hi",true);
 
   }
 
