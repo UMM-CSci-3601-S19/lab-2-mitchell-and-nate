@@ -17,7 +17,7 @@ function getAllTodosByStatus() {
   console.log("Getting all todos by status.");
 
   var HttpThingy = new HttpClient();
-  HttpThingy.get("/api/todos?status=" + document.getElementById("status").value, function (returned_json) {
+  HttpThingy.get("/api/todo?status=" + document.getElementById("status").value, function (returned_json) {
     document.getElementById('jsonDump').innerHTML = returned_json;
   });
 }
