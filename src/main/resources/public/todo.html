@@ -14,8 +14,8 @@
 <div id="jsonDump" style="margin-top:20px"> Json will go here</div>
 
 <!--- This button is used to limit the number of todos returned-->
-<label for="limit">limit:</label><input id="limit" type="text" name="limit">
-<button type="button" id="getTodosLimit"> limit todos returned</button>
+<label for="getTodosStatus">status:</label><input id="status" type="text" name="status">
+<button type="button" id="getTodosStatus"> filter by status</button>
 
 <script>
   window.onload = function () {
@@ -24,8 +24,8 @@
       var element = document.getElementById('getAllTodos');
       element.addEventListener("click", getAllTodosJS, true);
 
-      element = document.getElementById('getTodosLimit');
-      element.addEventListener("click", getTodosLimit, true);
+      element = document.getElementById('getTodosStatus');
+      element.addEventListener("click", getAllTodosByStatus, true);
     }
 </script>
 
