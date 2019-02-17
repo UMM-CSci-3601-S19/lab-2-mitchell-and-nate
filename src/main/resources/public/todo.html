@@ -9,9 +9,13 @@
 <body>
 <button type="button" id="getAllTodos">Get All Todos</button>
 
+
 <hr/>
 
 <div id="jsonDump" style="margin-top:20px"> Json will go here</div>
+
+<label for="NumberDisplayed">Maximum:</label><input id="NumberDisplayed" type="text" name="NumberDisplayed">
+<button type="button" id="FilterByNumber"> Display Up to This Many Todos</button>
 
 <script>
   window.onload = function () {
@@ -19,6 +23,11 @@
 
       var element = document.getElementById('getAllTodos');
       element.addEventListener("click", getAllTodosJS, true);
+
+      element = document.getElementById('FilterByNumber');
+      element.addEventListener("click", filterByNumberJS, true);
+
+
     }
 </script>
 
