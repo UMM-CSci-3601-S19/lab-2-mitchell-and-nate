@@ -38,7 +38,7 @@ public class TodoDatabase {
     return filteredTodos;
   }
 
-  /** Gets an array of todos filtered by their status
+  /* Gets an array of todos filtered by their status
    *
    * @param todos an array of all the todos
    * @param targetStatus String that is either 'complete' or 'incomplete' and triggers a conditional
