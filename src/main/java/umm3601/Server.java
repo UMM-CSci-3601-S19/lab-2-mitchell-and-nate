@@ -41,13 +41,12 @@ public class Server {
     redirect.get("/todo", "/todo.html");
 
     // API endpoints
-
     // Get specific user
     get("api/users/:id", userController::getUser);
     // List users, filtered using query parameters
     get("api/users", userController::getUsers);
 
-
+    // List all todos, no filter
     get("api/todo", todoController::getControllerTodos);
 
 
