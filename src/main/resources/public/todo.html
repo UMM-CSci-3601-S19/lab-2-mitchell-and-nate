@@ -28,6 +28,11 @@
 
 <br>
 
+<label for="owner">Category:</label><input id="owner" type="text" name="owner">
+<button type="button" id="getTodosOwner">filter by owner</button>
+
+<br>
+
 <label for="NumberDisplayed">Maximum:</label><input id="NumberDisplayed" type="text" name="NumberDisplayed">
 <button type="button" id="FilterByNumber"> Display Up to This Many Todos</button>
 
@@ -48,6 +53,9 @@
 
       element = document.getElementById('getTodosCategory');
       element.addEventListener("click", filterByCategory, true)
+
+      element = document.getElementById('getTodosOwner');
+      element.addEventListener("click", filterByOwner, true)
 
       element = document.getElementById('FilterByNumber');
       element.addEventListener("click", filterByNumberJS, true);
