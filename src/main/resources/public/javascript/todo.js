@@ -10,6 +10,7 @@ function getAllTodosJS() {
   });
 }
 
+
 /*
 Epic 3: This function is for filtering todos by Status
  */
@@ -22,6 +23,14 @@ function getAllTodosByStatus() {
 }
 
 
+function filterByNumberJS() {
+  console.log("Getting all the todos. Maybe.");
+  var HttpThingy2 = new HttpClient();
+  HttpThingy2.get("/api/todo?number="+ document.getElementById("NumberDisplayed").value, function (returned_json) {
+    document.getElementById('jsonDump').innerHTML = returned_json;
+  });
+
+}
 
 
 function HttpClient() {

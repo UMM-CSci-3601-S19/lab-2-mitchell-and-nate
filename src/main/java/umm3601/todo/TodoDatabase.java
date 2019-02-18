@@ -1,6 +1,7 @@
 package umm3601.todo;
 
 import com.google.gson.Gson;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
@@ -14,13 +15,20 @@ import java.util.Map;
 
 public class TodoDatabase {
 
-  private todo[] allTodos;
+  public todo[] allTodos;
 
   public TodoDatabase(String userDataFile) throws IOException {
     Gson gson = new Gson();
     FileReader reader = new FileReader(userDataFile);
     allTodos = gson.fromJson(reader, todo[].class);
   }
+
+
+//  public todo[] getTodos() {
+//    return allTodos;
+//  }
+
+
 
 
 
@@ -34,6 +42,14 @@ public class TodoDatabase {
       String targetStatus = queryParams.get("status")[0];
       filteredTodos = filterTodosByStatus(filteredTodos, targetStatus);
     }
+
+    // Maybe add some filtering later, see the mirrored Database.java class
+    if (queryParams.containsKey("number")) {
+      int numberShown = Integer.parseInt(queryParams.get("number")[0]);
+      //unfinished above line
+      filteredTodos= limitTodosShown(filteredTodos, numberShown);
+    }
+
 
     return filteredTodos;
   }
@@ -55,6 +71,13 @@ public class TodoDatabase {
     }
 
   }
+
+
+  public todo[] limitTodosShown(todo[] tempTodos, int numberShown) {
+    todo[] limitedTodos;
+      limitedTodos= Arrays.stream(tempTodos).limit(numberShown).toArray(todo[]::new);
+      return limitedTodos;
+    }
 
 
 }

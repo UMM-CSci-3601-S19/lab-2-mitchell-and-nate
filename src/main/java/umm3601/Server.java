@@ -50,7 +50,7 @@ public class Server {
     get("api/todo", todoController::getControllerTodos);
 
 
-    // An example of throwing an unhandledget("/hello", (req, res) -> "Hello World"); exception so you can see how the
+    // An example of throwing an unhandled get("/hello", (req, res) -> "Hello World"); exception so you can see how the
     // Java Spark debugger displays errors like this.
     get("api/error", (req, res) -> {
       throw new RuntimeException("A demonstration error");
