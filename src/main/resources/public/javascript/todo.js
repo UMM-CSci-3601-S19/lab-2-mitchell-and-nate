@@ -22,7 +22,7 @@ function getAllTodosByStatus() {
   });
 }
 
-function filterByNumberJS() {
+function filterByBodyContents() {
   console.log("Getting all the todos containing a certain string.");
   var HttpThingy2 = new HttpClient();
   HttpThingy2.get("/api/todo?contains="+ document.getElementById("bodyContains").value, function (returned_json) {
@@ -30,7 +30,6 @@ function filterByNumberJS() {
   });
 
 }
-
 
 function filterByNumberJS() {
   console.log("Getting all the todos. Maybe.");
