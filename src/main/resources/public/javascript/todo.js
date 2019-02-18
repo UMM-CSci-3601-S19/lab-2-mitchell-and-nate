@@ -10,6 +10,19 @@ function getAllTodosJS() {
   });
 }
 
+
+/*
+Epic 3: This function is for filtering todos by Status
+ */
+function getAllTodosByStatus() {
+  console.log("Getting all todos by status.");
+  var HttpThingy = new HttpClient();
+  HttpThingy.get("/api/todo?status=" + document.getElementById("status").value, function (returned_json) {
+    document.getElementById('jsonDump').innerHTML = returned_json;
+  });
+}
+
+
 function filterByNumberJS() {
   console.log("Getting all the todos. Maybe.");
   var HttpThingy2 = new HttpClient();
