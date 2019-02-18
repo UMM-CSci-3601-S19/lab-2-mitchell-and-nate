@@ -37,6 +37,11 @@ public class TodoDatabase {
       filteredTodos = filterTodosByBodyContents(filteredTodos, targetContents);
     }
 
+    if (queryParams.containsKey("category")) {
+      String targetCategory = queryParams.get("category")[0];
+      filteredTodos = filterTodosByCategory(filteredTodos, targetCategory);
+    }
+
     // Maybe add some filtering later, see the mirrored Database.java class
     if (queryParams.containsKey("number")) {
       int numberShown = Integer.parseInt(queryParams.get("number")[0]);
@@ -65,6 +70,10 @@ public class TodoDatabase {
 
   public todo[] filterTodosByBodyContents (todo[] todos, String targetContents) {
     return Arrays.stream(todos).filter(x -> x.body.contains(targetContents) == true).toArray(todo[]::new);
+  }
+
+  public todo[] filterTodosByCategory (todo[] todos, String targetCategory) {
+    return Arrays.stream(todos).filter(x -> x.category.equals(targetCategory) == true).toArray(todo[]::new);
   }
 
 

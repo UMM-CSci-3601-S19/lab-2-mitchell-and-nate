@@ -23,6 +23,11 @@
 
 <br>
 
+<label for="category">Category:</label><input id="category" type="text" name="category">
+<button type="button" id="getTodosCategory">filter by category</button>
+
+<br>
+
 <label for="NumberDisplayed">Maximum:</label><input id="NumberDisplayed" type="text" name="NumberDisplayed">
 <button type="button" id="FilterByNumber"> Display Up to This Many Todos</button>
 
@@ -40,6 +45,9 @@
 
       element = document.getElementById('getTodosBody');
       element.addEventListener("click", filterByBodyContents, true)
+
+      element = document.getElementById('getTodosCategory');
+      element.addEventListener("click", filterByCategory, true)
 
       element = document.getElementById('FilterByNumber');
       element.addEventListener("click", filterByNumberJS, true);
