@@ -80,7 +80,7 @@ public class TodoDatabase {
   }
 
   public todo[] filterTodosByOwner (todo[] todos, String targetOwner) {
-    return Arrays.stream(todos).filter(x -> x.category.equals(targetOwner) == true).toArray(todo[]::new);
+    return Arrays.stream(todos).filter(x -> x.owner.equals(targetOwner) == true).toArray(todo[]::new);
   }
 
 
