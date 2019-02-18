@@ -8,9 +8,8 @@ import java.util.Arrays;
 import java.util.Map;
 
 
-/**
+/*
  * This is a mirror of the provided Database.java object.
- *
  */
 
 public class TodoDatabase {
@@ -23,16 +22,6 @@ public class TodoDatabase {
     allTodos = gson.fromJson(reader, todo[].class);
   }
 
-
-//  public todo[] getTodos() {
-//    return allTodos;
-//  }
-
-
-
-
-
-
   //this is from epic #1, list all the todos
   public todo[] listTodos(Map<String, String[]> queryParams) {
     todo[] filteredTodos = allTodos;
@@ -41,6 +30,11 @@ public class TodoDatabase {
     if (queryParams.containsKey("status")) {
       String targetStatus = queryParams.get("status")[0];
       filteredTodos = filterTodosByStatus(filteredTodos, targetStatus);
+    }
+
+    if (queryParams.containsKey("contains")) {
+      String targetContents = queryParams.get("contains")[0];
+      filteredTodos = filterTodosByBodyContents(filteredTodos, targetContents);
     }
 
     // Maybe add some filtering later, see the mirrored Database.java class
@@ -66,10 +60,11 @@ public class TodoDatabase {
     if (targetStatus.equals("complete")) {
       return Arrays.stream(todos).filter(x -> x.status == true).toArray(todo[]::new);
     }
-    else {
-      return Arrays.stream(todos).filter(x -> x.status == false).toArray(todo[]::new);
-    }
+    else { return Arrays.stream(todos).filter(x -> x.status == false).toArray(todo[]::new); }
+  }
 
+  public todo[] filterTodosByBodyContents (todo[] todos, String targetContents) {
+    return Arrays.stream(todos).filter(x -> x.body.contains(targetContents) == true).toArray(todo[]::new);
   }
 
 

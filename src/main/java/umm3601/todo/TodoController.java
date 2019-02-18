@@ -35,15 +35,4 @@ public class TodoController {
     return buildSuccessJsonResponse("todos", gson.toJsonTree(todos));
   }
 
-//  public JsonObject getControllerTodosNumber(Request req, Response res) {
-//    res.type("application/json");
-//    String id = req.params("number");
-//    todo[] tempTodo = TodoDatabase.getTodos();
-//    if (tempTodo != null) {
-//      return buildSuccessJsonResponse("number", gson.toJsonTree(tempTodo));
-//    } else {
-//      String message = "User with ID " + id + " wasn't found.";
-//      return buildFailJsonResponse("id", message);
-//  }
-//
 }
