@@ -28,7 +28,14 @@ function filterByBodyContents() {
   HttpThingy2.get("/api/todo?contains="+ document.getElementById("bodyContains").value, function (returned_json) {
     document.getElementById('jsonDump').innerHTML = returned_json;
   });
+}
 
+function filterByBodyContents() {
+  console.log("Getting all the todos for a certain category.");
+  var HttpThingy2 = new HttpClient();
+  HttpThingy2.get("/api/todo?category="+ document.getElementById("category").value, function (returned_json) {
+    document.getElementById('jsonDump').innerHTML = returned_json;
+  });
 }
 
 function filterByNumberJS() {
