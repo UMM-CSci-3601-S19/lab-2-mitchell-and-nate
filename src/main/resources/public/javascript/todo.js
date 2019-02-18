@@ -38,6 +38,14 @@ function filterByCategory() {
   });
 }
 
+function filterByOwner() {
+  console.log("Getting all the todos for a specific owner.");
+  var HttpThingy2 = new HttpClient();
+  HttpThingy2.get("/api/todo?owner="+ document.getElementById("owner").value, function (returned_json) {
+    document.getElementById('jsonDump').innerHTML = returned_json;
+  });
+}
+
 function filterByNumberJS() {
   console.log("Getting all the todos. Maybe.");
   var HttpThingy2 = new HttpClient();
