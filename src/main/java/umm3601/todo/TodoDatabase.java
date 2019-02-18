@@ -42,13 +42,16 @@ public class TodoDatabase {
       filteredTodos = filterTodosByCategory(filteredTodos, targetCategory);
     }
 
-    // Maybe add some filtering later, see the mirrored Database.java class
+    if (queryParams.containsKey("owner")) {
+      String targetOwner = queryParams.get("owner")[0];
+      filteredTodos = filterTodosByOwner(filteredTodos, targetOwner);
+    }
+
     if (queryParams.containsKey("number")) {
       int numberShown = Integer.parseInt(queryParams.get("number")[0]);
       //unfinished above line
       filteredTodos= limitTodosShown(filteredTodos, numberShown);
     }
-
 
     return filteredTodos;
   }
@@ -74,6 +77,10 @@ public class TodoDatabase {
 
   public todo[] filterTodosByCategory (todo[] todos, String targetCategory) {
     return Arrays.stream(todos).filter(x -> x.category.equals(targetCategory) == true).toArray(todo[]::new);
+  }
+
+  public todo[] filterTodosByOwner (todo[] todos, String targetOwner) {
+    return Arrays.stream(todos).filter(x -> x.category.equals(targetOwner) == true).toArray(todo[]::new);
   }
 
 
