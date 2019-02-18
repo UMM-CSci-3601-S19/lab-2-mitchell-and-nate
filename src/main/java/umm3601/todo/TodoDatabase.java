@@ -23,16 +23,6 @@ public class TodoDatabase {
     allTodos = gson.fromJson(reader, todo[].class);
   }
 
-
-//  public todo[] getTodos() {
-//    return allTodos;
-//  }
-
-
-
-
-
-
   //this is from epic #1, list all the todos
   public todo[] listTodos(Map<String, String[]> queryParams) {
     todo[] filteredTodos = allTodos;
