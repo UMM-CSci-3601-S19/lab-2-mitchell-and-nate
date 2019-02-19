@@ -9,10 +9,6 @@ import java.util.Map;
 
 import static junit.framework.TestCase.assertEquals;
 
-/**
- * Tests umm3601.user.Database filterUsersByAge
- * and listUsers with _age_ query parameters
- */
 public class FilterTodosByCategoryFromDB {
 
   @Test
@@ -28,7 +24,7 @@ public class FilterTodosByCategoryFromDB {
   }
 
   @Test
-  public void listUsersWithAgeFilter() throws IOException {
+  public void listTodosWithCategoryFilter() throws IOException {
     TodoDatabase tdb = new TodoDatabase("src/main/data/todos.json");
     Map<String, String[]> queryParams = new HashMap<>();
 
