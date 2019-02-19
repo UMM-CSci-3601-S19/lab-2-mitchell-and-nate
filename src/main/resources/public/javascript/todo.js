@@ -14,26 +14,15 @@ function getAllTodosJS() {
 /*
 Epic 3: This function is for filtering todos by Status
  */
-// function getAllTodosByStatus() {
-//   console.log("Getting all todos by status.");
-//   var HttpThingy = new HttpClient();
-//   HttpThingy.get("/api/todo?status=" + document.getElementById("status").value, function (returned_json) {
-//     document.getElementById('jsonDump').innerHTML = returned_json;
-//   });
-// }
-
 function getAllTodosByStatus() {
-  console.log("Getting all todos by status");
-  var HttpThingy2 = new HttpClient();
-  if (document.getElementById("statusComplete").checked) {
-    HttpThingy2.get("/api/todo?status=complete", function (returned_json) {
-      document.getElementById('jsonDump').innerHTML = returned_json;} )
-  }
-  else if (document.getElementById("statusIncomplete").checked) {
-      HttpThingy2.get("/api/todo?status=incomplete", function (returned_json) {
-        document.getElementById('jsonDump').innerHTML = returned_json;} )
-  }
+  console.log("Getting all todos by status.");
+  var HttpThingy = new HttpClient();
+  var el = document.getElementById("status")
+  HttpThingy.get("/api/todo?status=" + el.options[el.selectedIndex].value, function (returned_json) {
+    document.getElementById('jsonDump').innerHTML = returned_json;
+  });
 }
+
 
 function filterByBodyContents() {
   console.log("Getting all the todos containing a certain string.");
@@ -84,11 +73,9 @@ function sortByAll() {
 
   // Here's the base request
   var stem = "/api/todo?"
-  if (document.getElementById("statusComplete").checked) {
-    stem = stem.concat("status=complete&");
-  }
-  if (document.getElementById("statusIncomplete").checked) {
-    stem = stem.concat("status=incomplete&");
+  var el = document.getElementById("status")
+  if (el.options[el.selectedIndex].value != "") {
+    stem = stem.concat("status=", el.options[el.selectedIndex].value, "&")
   }
   if (document.getElementById("bodyContains").value != "") {
     stem = stem.concat("contains=", document.getElementById("bodyContains").value, "&");
@@ -99,7 +86,8 @@ function sortByAll() {
   if (document.getElementById("owner").value != "") {
     stem = stem.concat("owner=", document.getElementById("owner").value, "&");
   }
-  if (document.getElementById("NumberDisplayed").value >= 0) {
+  if (document.getElementById("NumberDisplayed").value != "" &&
+        document.getElementById("NumberDisplayed").value >= 0) {
     stem = stem.concat("number=", document.getElementById("NumberDisplayed").value, "&");
   }
   //Here, we trim the last ampersand off the request

@@ -15,13 +15,13 @@
 <!--<label for="getTodosStatus">Status:</label><input id="status" type="text" name="status">-->
 <!--<button type="button" id="getTodosStatus"> filter by status</button>-->
 
-<form>
-  <input type="radio" id="statusComplete" name = "status" value = "Complete">
-  <label for="statusComplete">Complete</label>
-  <input type="radio" id="statusIncomplete" name = "status" value = "Incomplete">
-  <label for="statusIncomplete">Incomplete</label>
+<select id="status">
+  <option value="" selected="selected"></option>
+  <option value="incomplete">incomplete</option>
+  <option value="complete"> complete</option>
+</select>
   <button type="button" id="submit">Sort by status</button>
-</form>
+
 
 <br>
 
