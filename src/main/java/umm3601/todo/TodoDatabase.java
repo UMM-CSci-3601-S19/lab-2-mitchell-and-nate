@@ -64,11 +64,11 @@ public class TodoDatabase {
    * @return An array of todos that have been filtered
    */
   public todo[] filterTodosByStatus (todo[] todos, String targetStatus) {
-    Boolean boolStatus;
     if (targetStatus.equals("complete")) {
-      return Arrays.stream(todos).filter(x -> x.status == true).toArray(todo[]::new);
-    }
-    else { return Arrays.stream(todos).filter(x -> x.status == false).toArray(todo[]::new); }
+      return Arrays.stream(todos).filter(x -> x.status == true).toArray(todo[]::new); }
+    else if (targetStatus.equals("incomplete") )
+    { return Arrays.stream(todos).filter(x -> x.status == false).toArray(todo[]::new); }
+    else { return todos; }
   }
 
   public todo[] filterTodosByBodyContents (todo[] todos, String targetContents) {
