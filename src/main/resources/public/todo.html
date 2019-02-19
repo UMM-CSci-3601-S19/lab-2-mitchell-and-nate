@@ -12,9 +12,16 @@
 
 <hr/>
 
-<!--- This button is used to limit the number of todos returned-->
-<label for="getTodosStatus">Status:</label><input id="status" type="text" name="status">
-<button type="button" id="getTodosStatus"> filter by status</button>
+<!--<label for="getTodosStatus">Status:</label><input id="status" type="text" name="status">-->
+<!--<button type="button" id="getTodosStatus"> filter by status</button>-->
+
+<form>
+  <input type="radio" id="statusComplete" name = "status" value = "Complete">
+  <label for="statusComplete">Complete</label>
+  <input type="radio" id="statusIncomplete" name = "status" value = "Incomplete">
+  <label for="statusIncomplete">Incomplete</label>
+  <button type="button" id="submit">Sort by status</button>
+</form>
 
 <br>
 
@@ -52,8 +59,11 @@
       var element = document.getElementById('getAllTodos');
       element.addEventListener("click", getAllTodosJS, true);
 
-      element = document.getElementById('getTodosStatus');
-      element.addEventListener("click", getAllTodosByStatus, true);
+      // element = document.getElementById('getTodosStatus');
+      // element.addEventListener("click", getAllTodosByStatus, true);
+
+      element = document.getElementById("submit");
+      element.addEventListener("click", getAllTodosByStatus,  true)
 
       element = document.getElementById('getTodosBody');
       element.addEventListener("click", filterByBodyContents, true)

@@ -14,12 +14,25 @@ function getAllTodosJS() {
 /*
 Epic 3: This function is for filtering todos by Status
  */
+// function getAllTodosByStatus() {
+//   console.log("Getting all todos by status.");
+//   var HttpThingy = new HttpClient();
+//   HttpThingy.get("/api/todo?status=" + document.getElementById("status").value, function (returned_json) {
+//     document.getElementById('jsonDump').innerHTML = returned_json;
+//   });
+// }
+
 function getAllTodosByStatus() {
-  console.log("Getting all todos by status.");
-  var HttpThingy = new HttpClient();
-  HttpThingy.get("/api/todo?status=" + document.getElementById("status").value, function (returned_json) {
-    document.getElementById('jsonDump').innerHTML = returned_json;
-  });
+  console.log("Getting all todos by status");
+  var HttpThingy2 = new HttpClient();
+  if (document.getElementById("statusComplete").checked) {
+    HttpThingy2.get("/api/todo?status=complete", function (returned_json) {
+      document.getElementById('jsonDump').innerHTML = returned_json;} )
+  }
+  else if (document.getElementById("statusIncomplete").checked) {
+      HttpThingy2.get("/api/todo?status=incomplete", function (returned_json) {
+        document.getElementById('jsonDump').innerHTML = returned_json;} )
+  }
 }
 
 function filterByBodyContents() {
@@ -71,8 +84,11 @@ function sortByAll() {
 
   // Here's the base request
   var stem = "/api/todo?"
-  if (document.getElementById("status").value != "") {
-    stem = stem.concat("status=", document.getElementById("status").value, "&");
+  if (document.getElementById("statusComplete").checked) {
+    stem = stem.concat("status=complete&");
+  }
+  if (document.getElementById("statusIncomplete").checked) {
+    stem = stem.concat("status=incomplete&");
   }
   if (document.getElementById("bodyContains").value != "") {
     stem = stem.concat("contains=", document.getElementById("bodyContains").value, "&");
