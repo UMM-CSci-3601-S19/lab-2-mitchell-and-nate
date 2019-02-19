@@ -38,6 +38,9 @@
 
 <br>
 
+<label for="OrderBy">Maximum:</label><input id="OrderBy" type="text" name="OrderBy">
+<button type="button" id="OrderByParameter"> Order by this parameter</button>
+
 <script>
   window.onload = function () {
       console.log("The page is loaded now!");
@@ -59,6 +62,9 @@
 
       element = document.getElementById('FilterByNumber');
       element.addEventListener("click", filterByNumberJS, true);
+
+      element = document.getElementById('OrderByParameter');
+      element.addEventListener("click", orderByParameter, true);
     }
 
 </script>
