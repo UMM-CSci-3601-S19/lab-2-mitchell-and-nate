@@ -55,6 +55,15 @@ function filterByNumberJS() {
 
 }
 
+function orderByParameter() {
+  console.log("Ordering by certain parameters...");
+  var HttpThingy2 = new HttpClient();
+  HttpThingy2.get("/api/todo?orderBy="+ document.getElementById("OrderBy").value, function (returned_json) {
+    document.getElementById('jsonDump').innerHTML = returned_json;
+  });
+
+}
+
 
 function HttpClient() {
   // We'll take a URL string, and a callback function.
