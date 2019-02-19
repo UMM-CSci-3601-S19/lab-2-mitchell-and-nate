@@ -83,7 +83,7 @@ function sortByAll() {
   if (document.getElementById("owner").value != "") {
     stem = stem.concat("owner=", document.getElementById("owner").value, "&");
   }
-  if (document.getElementById("NumberDisplayed").value > 0) {
+  if (document.getElementById("NumberDisplayed").value >= 0) {
     stem = stem.concat("number=", document.getElementById("NumberDisplayed").value, "&");
   }
   //Here, we trim the last ampersand off the request
