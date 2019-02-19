@@ -56,11 +56,44 @@ function filterByNumberJS() {
 
 }
 
-function orderByParameter() {
-  console.log("Ordering by certain parameters...");
+// function orderByParameter() {
+//   console.log("Ordering by certain parameters...");
+//   var HttpThingy2 = new HttpClient();
+//   HttpThingy2.get("/api/todo?orderBy="+ document.getElementById("OrderBy").value, function (returned_json) {
+//     document.getElementById('jsonDump').innerHTML = returned_json;
+//   });
+//
+// }
+
+function sortByAll() {
+  console.log("Sorting by all parameters");
   var HttpThingy2 = new HttpClient();
-  HttpThingy2.get("/api/todo?orderBy="+ document.getElementById("OrderBy").value, function (returned_json) {
+
+  // Here's the base request
+  var stem = "/api/todo?"
+  if (document.getElementById("status").value != "") {
+    stem = stem.concat("status=", document.getElementById("status").value, "&");
+  }
+  if (document.getElementById("bodyContains").value != "") {
+    stem = stem.concat("contains=", document.getElementById("bodyContains").value, "&");
+  }
+  if (document.getElementById("category").value != "") {
+    stem = stem.concat("category=", document.getElementById("category").value, "&");
+  }
+  if (document.getElementById("owner").value != "") {
+    stem = stem.concat("owner=", document.getElementById("owner").value, "&");
+  }
+  if (document.getElementById("NumberDisplayed").value > 0) {
+    stem = stem.concat("number=", document.getElementById("NumberDisplayed").value, "&");
+  }
+  //Here, we trim the last ampersand off the request
+  stem = stem.substr(0, stem.length-1)
+
+    HttpThingy2.get(stem, function (returned_json) {
     document.getElementById('jsonDump').innerHTML = returned_json;
+
+    // print the request to the browser console, for debugging
+    console.log(stem)
   });
 
 }
