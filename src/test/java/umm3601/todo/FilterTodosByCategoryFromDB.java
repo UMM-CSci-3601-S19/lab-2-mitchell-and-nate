@@ -24,7 +24,7 @@ public class FilterTodosByCategoryFromDB {
   }
 
   @Test
-  public void listUsersWithAgeFilter() throws IOException {
+  public void listTodosWithCategoryFilter() throws IOException {
     TodoDatabase tdb = new TodoDatabase("src/main/data/todos.json");
     Map<String, String[]> queryParams = new HashMap<>();
 
