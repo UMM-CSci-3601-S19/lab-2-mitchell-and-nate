@@ -7,15 +7,36 @@
   <script type="text/javascript" src="javascript/todo.js"></script>
 </head>
 <body>
-<button type="button" id="getAllTodos">Get All Todos</button>
 
+<button type="button" id="getAllTodos">Get All Todos</button>
 
 <hr/>
 
-<div id="jsonDump" style="margin-top:20px"> Json will go here</div>
+<!--- This button is used to limit the number of todos returned-->
+<label for="getTodosStatus">Status:</label><input id="status" type="text" name="status">
+<button type="button" id="getTodosStatus"> filter by status</button>
+
+<br>
+
+<label for="bodyContains">Body contains:</label><input id="bodyContains" type="text" name="bodyContains">
+<button type="button" id="getTodosBody">filter by body</button>
+
+<br>
+
+<label for="category">Category:</label><input id="category" type="text" name="category">
+<button type="button" id="getTodosCategory">filter by category</button>
+
+<br>
+
+<label for="owner">Owner:</label><input id="owner" type="text" name="owner">
+<button type="button" id="getTodosOwner">filter by owner</button>
+
+<br>
 
 <label for="NumberDisplayed">Maximum:</label><input id="NumberDisplayed" type="text" name="NumberDisplayed">
 <button type="button" id="FilterByNumber"> Display Up to This Many Todos</button>
+
+<br>
 
 <script>
   window.onload = function () {
@@ -24,12 +45,27 @@
       var element = document.getElementById('getAllTodos');
       element.addEventListener("click", getAllTodosJS, true);
 
+      element = document.getElementById('getTodosStatus');
+      element.addEventListener("click", getAllTodosByStatus, true);
+
+      element = document.getElementById('getTodosBody');
+      element.addEventListener("click", filterByBodyContents, true)
+
+      element = document.getElementById('getTodosCategory');
+      element.addEventListener("click", filterByCategory, true)
+
+      element = document.getElementById('getTodosOwner');
+      element.addEventListener("click", filterByOwner, true)
+
       element = document.getElementById('FilterByNumber');
       element.addEventListener("click", filterByNumberJS, true);
-
-
     }
+
 </script>
+
+<hr/>
+
+<div id="jsonDump" style="margin-top:20px"> Json will go here</div>
 
 </body>
 </html>

@@ -10,6 +10,42 @@ function getAllTodosJS() {
   });
 }
 
+
+/*
+Epic 3: This function is for filtering todos by Status
+ */
+function getAllTodosByStatus() {
+  console.log("Getting all todos by status.");
+  var HttpThingy = new HttpClient();
+  HttpThingy.get("/api/todo?status=" + document.getElementById("status").value, function (returned_json) {
+    document.getElementById('jsonDump').innerHTML = returned_json;
+  });
+}
+
+function filterByBodyContents() {
+  console.log("Getting all the todos containing a certain string.");
+  var HttpThingy2 = new HttpClient();
+  HttpThingy2.get("/api/todo?contains="+ document.getElementById("bodyContains").value, function (returned_json) {
+    document.getElementById('jsonDump').innerHTML = returned_json;
+  });
+}
+
+function filterByCategory() {
+  console.log("Getting all the todos for a certain category.");
+  var HttpThingy2 = new HttpClient();
+  HttpThingy2.get("/api/todo?category="+ document.getElementById("category").value, function (returned_json) {
+    document.getElementById('jsonDump').innerHTML = returned_json;
+  });
+}
+
+function filterByOwner() {
+  console.log("Getting all the todos for a specific owner.");
+  var HttpThingy2 = new HttpClient();
+  HttpThingy2.get("/api/todo?owner="+ document.getElementById("owner").value, function (returned_json) {
+    document.getElementById('jsonDump').innerHTML = returned_json;
+  });
+}
+
 function filterByNumberJS() {
   console.log("Getting all the todos. Maybe.");
   var HttpThingy2 = new HttpClient();
