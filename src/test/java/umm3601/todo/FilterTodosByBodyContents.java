@@ -19,19 +19,19 @@ public class FilterTodosByBodyContents {
       assertEquals("Incorrect number of todos with bodies containing non tempor", 4, bodyContainsNon.length);
 
       todo[] bodyContainsEsse = tdb.filterTodosByBodyContents(allTodos, "esse");
-      assertEquals("Incorrect number of todos with category homework", 7, bodyContainsEsse.length);
+      assertEquals("Incorrect number of todos with category homework", 70, bodyContainsEsse.length);
     }
 
     @Test
-    public void listUsersWithAgeFilter() throws IOException {
+    public void listTodosWithBodyContentsFilter() throws IOException {
       TodoDatabase tdb = new TodoDatabase("src/main/data/todos.json");
       Map<String, String[]> queryParams = new HashMap<>();
 
-      queryParams.put("body", new String[]{"blah blah blah"});
+      queryParams.put("contains", new String[]{"bandit"});
       todo[] bodyContainsBlah = tdb.listTodos(queryParams);
-      assertEquals("Incorrect number of todos with body containing blah", 0, bodyContainsBlah.length);
+      assertEquals("Incorrect number of todos with body containing bandit", 0, bodyContainsBlah.length);
 
-      queryParams.put("body", new String[]{"commodo amet incididunt anim"});
+      queryParams.put("contains", new String[]{"commodo amet incididunt anim"});
       todo[] bodyContainsSnippet = tdb.listTodos(queryParams);
       assertEquals("Incorrect number of users with age 33", 1, bodyContainsSnippet.length);
     }
