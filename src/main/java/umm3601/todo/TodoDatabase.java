@@ -49,7 +49,6 @@ public class TodoDatabase {
 
     if (queryParams.containsKey("number")) {
       int numberShown = Integer.parseInt(queryParams.get("number")[0]);
-      //unfinished above line
       filteredTodos= limitTodosShown(filteredTodos, numberShown);
     }
 
