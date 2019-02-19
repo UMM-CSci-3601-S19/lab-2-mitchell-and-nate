@@ -25,7 +25,7 @@ public class FullTodoListFromDB {
     todo[] allTodos = tdb.listTodos(new HashMap<>());
     todo firstTodo = allTodos[0];
     assertEquals("Incorrect owner", "Blanche", firstTodo.owner);
-    assertEquals("Incorrect status", true, firstTodo.status);
+    assertEquals("Incorrect status", false, firstTodo.status);
     assertEquals("Incorrect category", "software design", firstTodo.category);
     assertEquals("Incorrect id", "58895985a22c04e761776d54", firstTodo._id);
   }
