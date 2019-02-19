@@ -53,6 +53,7 @@ public class TodoDatabase {
       filteredTodos= limitTodosShown(filteredTodos, numberShown);
     }
 
+
     return filteredTodos;
   }
 
@@ -89,6 +90,7 @@ public class TodoDatabase {
       limitedTodos= Arrays.stream(tempTodos).limit(numberShown).toArray(todo[]::new);
       return limitedTodos;
     }
+
 
 
 }
