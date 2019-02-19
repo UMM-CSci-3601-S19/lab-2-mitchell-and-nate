@@ -12,9 +12,6 @@
 
 <hr/>
 
-<!--<label for="getTodosStatus">Status:</label><input id="status" type="text" name="status">-->
-<!--<button type="button" id="getTodosStatus"> filter by status</button>-->
-
 <select id="status">
   <option value="" selected="selected"></option>
   <option value="incomplete">incomplete</option>
@@ -45,8 +42,15 @@
 
 <br>
 
-<!--<label for="OrderBy">Ordering by:</label><input id="OrderBy" type="text" name="OrderBy">-->
-<!--<button type="button" id="OrderByParameter"> Order by this parameter</button>-->
+<select id="orderBy">
+  <option value="" selected="selected"></option>
+  <option value="id">id</option>
+  <option value="owner">owner</option>
+  <option value="status">status</option>
+  <option value="body">body</option>
+  <option value="category">category</option>
+</select>
+<button type="button" id="submitOrderBy">Order results by...</button>
 
 <br>
 
@@ -77,8 +81,8 @@
       element = document.getElementById('FilterByNumber');
       element.addEventListener("click", filterByNumberJS, true);
 
-      // element = document.getElementById('OrderByParameter');
-      // element.addEventListener("click", orderByParameter, true);
+      element = document.getElementById('submitOrderBy');
+      element.addEventListener("click", orderByParameter, true);
 
       element = document.getElementById('SortByAll');
       element.addEventListener("click", sortByAll, true);

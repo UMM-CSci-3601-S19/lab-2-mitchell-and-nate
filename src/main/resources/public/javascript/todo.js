@@ -58,14 +58,15 @@ function filterByNumberJS() {
 
 }
 
-// function orderByParameter() {
-//   console.log("Ordering by certain parameters...");
-//   var HttpThingy2 = new HttpClient();
-//   HttpThingy2.get("/api/todo?orderBy="+ document.getElementById("OrderBy").value, function (returned_json) {
-//     document.getElementById('jsonDump').innerHTML = returned_json;
-//   });
-//
-// }
+function orderByParameter() {
+  console.log("OrderBy doesn't do anything beyond this point. Sorry to crush your dreams.");
+  var HttpThingy2 = new HttpClient();
+  var el = document.getElementById("orderBy");
+  HttpThingy2.get("/api/todo?orderBy="+ el.options[el.selectedIndex].value, function (returned_json) {
+    document.getElementById('jsonDump').innerHTML = returned_json;
+  });
+
+}
 
 function sortByAll() {
   console.log("Sorting by all parameters");
@@ -90,6 +91,13 @@ function sortByAll() {
         document.getElementById("NumberDisplayed").value >= 0) {
     stem = stem.concat("number=", document.getElementById("NumberDisplayed").value, "&");
   }
+
+  el = document.getElementById("orderBy")
+  if (el.options[el.selectedIndex].value != "") {
+    stem = stem.concat("orderBy=", el.options[el.selectedIndex].value, "&");
+    console.log("OrderBy doesn't do anything beyond this point. Sorry to crush your dreams.");
+  }
+
   //Here, we trim the last ampersand off the request
   stem = stem.substr(0, stem.length-1)
 
