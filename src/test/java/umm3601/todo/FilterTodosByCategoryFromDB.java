@@ -9,10 +9,6 @@ import java.util.Map;
 
 import static junit.framework.TestCase.assertEquals;
 
-/**
- * Tests umm3601.user.Database filterUsersByAge
- * and listUsers with _age_ query parameters
- */
 public class FilterTodosByCategoryFromDB {
 
   @Test
